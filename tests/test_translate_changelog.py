@@ -38,6 +38,12 @@ class MarkdownTranslationTests(unittest.TestCase):
         line = "[issue]: https://github.com/example/repo/issues/1"
         self.assertEqual(module.translate_line(line, lambda text: "broken", {}), line)
 
+    def test_markdown_prefix_is_preserved_when_engine_drops_it(self):
+        self.assertEqual(
+            module.translate_line("## Changed", lambda text: "変更", {}),
+            "## 変更",
+        )
+
     def test_translation_cache_avoids_duplicate_calls(self):
         calls = []
 
