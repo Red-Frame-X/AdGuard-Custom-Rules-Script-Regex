@@ -74,13 +74,19 @@ def translate_line(
     if re.match(r"^\s*\[[^\]]+\]:\s+\S+", line):
         return line
 
-    output: list[str] = []
+    prefix_match = re.match(
+        r"^(\s*(?:#{1,6}\s+|(?:[-*+]|\d+\.)\s+|>+\s*))",
+        line,
+    )
+    prefix = prefix_match.group(1) if prefix_match else ""
+    body = line[len(prefix):]
+    output: list[str] = [prefix]
     cursor = 0
-    for match in PROTECTED_RE.finditer(line):
-        output.append(translate_piece(line[cursor:match.start()], translator, cache))
+    for match in PROTECTED_RE.finditer(body):
+        output.append(translate_piece(body[cursor:match.start()], translator, cache))
         output.append(match.group(0))
         cursor = match.end()
-    output.append(translate_piece(line[cursor:], translator, cache))
+    output.append(translate_piece(body[cursor:], translator, cache))
     return "".join(output)
 
 
