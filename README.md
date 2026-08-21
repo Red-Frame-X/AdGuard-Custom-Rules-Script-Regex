@@ -15,6 +15,7 @@ The following items were created for my personal use.
 
 * [AdGuard Custom Rules](https://github.com/Red-Frame-X/Prototype/tree/main/AdGuard%20Custom%20Rules)
 * [uBOL Filter Converter](https://github.com/Red-Frame-X/Prototype/tree/main/uBOL%20Filter%20Converter)
+* [uB-filter-by-kdroidwin (AdGuard Optimized)](https://github.com/Red-Frame-X/Prototype/tree/main/dist)
 * [UserScript](https://github.com/Red-Frame-X/Prototype/tree/main/UserScript)
 * [NG Word Regex for ChMate](https://github.com/Red-Frame-X/Prototype/tree/main/NG%20Word%20Regex%20for%20ChMate)
 * [Markdown Notes](https://github.com/Red-Frame-X/Prototype/tree/main/Markdown%20Notes)
@@ -70,7 +71,7 @@ These are projects that I use on a daily basis and support regularly.
 
 特に、GPL-3.0で提供されているフィルタを基にした改変物については、GNU General Public License v3.0の条件に従って取り扱います。原著作権表示等の保持、改変の明示、および改変版を配布する場合の条件については、GPL-3.0 Sections 4 と 5を参照してください。
 
-本リポジトリのコンテンツは、各適用ライセンスおよび法令で認められる範囲において、明示または黙示を問わず無保証（"AS IS"）で提供されます。使用によって生じたWebサイトの表示崩れ、機能上の問題、その他の損害について、作成者は適用法令で認められる最大限の範囲で責任を負いません。GPL-3.0対象物の無保証および責任制限については、Sections 15 と 16を参照してください。
+本リポジトリのコンテンツは、各適用ライセンスおよび法令で認められる範囲において、明示または黙示を問わず無保証（"AS IS"）で提供されます。使用によって生じたWebサイトの表示崩れ、機能上の問題、その他の損害について、作成者は適用法で認められる最大限の範囲で責任を負いません。GPL-3.0対象物の無保証および責任制限については、Sections 15 と 16を参照してください。
 
 This repository may contain content created by the author as well as modified works based on third-party open-source and FLOSS projects.
 
