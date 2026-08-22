@@ -38,8 +38,8 @@ jobs:
         run: |
           python "uBOL Filter Converter/converter.py"
           git diff --exit-code -- \
-            "uBOL Filter Converter/dist/uBOL_Filter_Red_Frame_X.txt" \
-            "uBOL Filter Converter/dist/uBOL_Filter_Red_Frame_X.report.json"
+            "uBOL Filter Converter/dist/uBOL Filter - Red Frame X.txt" \
+            "uBOL Filter Converter/dist/uBOL Filter - Red Frame X.report.json"
 
       - name: Run Markdownlint
         run: npm run lint:markdown

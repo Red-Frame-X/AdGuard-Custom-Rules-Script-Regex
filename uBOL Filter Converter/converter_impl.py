@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Iterable
 
 FILTER_TITLE = "uBOL Filter - Red Frame X"
-FILTER_BASENAME = "uBOL_Filter_Red_Frame_X"
+FILTER_BASENAME = "uBOL Filter - Red Frame X"
 
 CANONICAL_SOURCE = (
     "https://raw.githubusercontent.com/Red-Frame-X/Prototype/refs/heads/main/"

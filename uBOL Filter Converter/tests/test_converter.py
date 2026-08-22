@@ -103,7 +103,7 @@ class LineConversionTests(unittest.TestCase):
 class MainOutputTests(unittest.TestCase):
     def test_filter_name_and_output_basename_are_canonical(self):
         self.assertEqual(converter.FILTER_TITLE, "uBOL Filter - Red Frame X")
-        self.assertEqual(converter.FILTER_BASENAME, "uBOL_Filter_Red_Frame_X")
+        self.assertEqual(converter.FILTER_BASENAME, "uBOL Filter - Red Frame X")
 
     def test_report_is_deterministic_and_contains_no_runtime_timestamp(self):
         with tempfile.TemporaryDirectory() as directory:

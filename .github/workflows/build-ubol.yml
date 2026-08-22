@@ -41,8 +41,8 @@ jobs:
       - name: Commit generated outputs if changed
         run: |
           set -euo pipefail
-          output='uBOL Filter Converter/dist/uBOL_Filter_Red_Frame_X.txt'
-          report='uBOL Filter Converter/dist/uBOL_Filter_Red_Frame_X.report.json'
+          output='uBOL Filter Converter/dist/uBOL Filter - Red Frame X.txt'
+          report='uBOL Filter Converter/dist/uBOL Filter - Red Frame X.report.json'
           if git diff --quiet -- "$output" "$report"; then
             echo 'No generated changes detected.'
             exit 0

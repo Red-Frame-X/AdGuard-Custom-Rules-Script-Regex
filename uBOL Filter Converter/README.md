@@ -11,7 +11,7 @@ URLで購読できます。uBOLのオプションを開き、`Filter lists`の
 `Add filter list…`へ次のRaw URLを入力してください。
 
 ```text
-https://raw.githubusercontent.com/Red-Frame-X/Prototype/refs/heads/main/uBOL%20Filter%20Converter/dist/uBOL_Filter_Red_Frame_X.txt
+https://raw.githubusercontent.com/Red-Frame-X/Prototype/refs/heads/main/uBOL%20Filter%20Converter/dist/uBOL%20Filter%20-%20Red%20Frame%20X.txt
 ```
 
 追加後は`Imported lists`に表示されます。リスト内のコスメティックフィルタを
@@ -27,7 +27,7 @@ https://raw.githubusercontent.com/Red-Frame-X/Prototype/refs/heads/main/uBOL%20F
 - 汎用コスメティックフィルタ、厳格ブロック、`popup`など、一部機能には対応上の制限があります。
 - 信頼できるURLだけを追加してください。外部リストは更新時にも取得・再コンパイルされます。
 
-手動で使用する場合は、生成された`dist/uBOL_Filter_Red_Frame_X.txt`の内容を
+手動で使用する場合は、生成された`dist/uBOL Filter - Red Frame X.txt`の内容を
 uBOLの`Custom filters`からインポートできます。ただし、通常は自動更新される
 URL購読を推奨します。
 
