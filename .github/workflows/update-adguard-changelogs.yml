@@ -9,6 +9,9 @@ on:
       - 'tests/test_update_adguard_changelogs.py'
       - 'config/adguard-converter-capabilities.json'
       - '.github/workflows/update-adguard-changelogs.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/update-adguard-changelogs.yml'
   schedule:
     - cron: '7 19 * * *' # Daily at 04:07 JST.
   workflow_dispatch:
