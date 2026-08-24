@@ -9,6 +9,9 @@ on:
       - 'uBOL Filter Converter/update_ubol_metadata.py'
       - 'uBOL Filter Converter/tests/test_update_ubol_metadata.py'
       - '.github/workflows/update-ubol-changelog.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/update-ubol-changelog.yml'
   schedule:
     - cron: '37 18 * * *' # Daily at 03:37 JST.
   workflow_dispatch:
