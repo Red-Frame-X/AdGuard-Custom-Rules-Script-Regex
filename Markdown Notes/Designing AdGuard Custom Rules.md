@@ -4,13 +4,13 @@ AdGuardカスタムルールの設計
 
 ---
 
-本書は、AdGuardブラウザ拡張機能（MV3版）とAdGuard for Androidでカスタムルールを設計・検証するための学習手順と注意点をまとめたものです。対応状況は変わるため、構文の可否はAdGuard公式リファレンスと実際のフィルタリングログで確認します。
+本書は、AdGuard ブラウザ拡張機能 MV3対応版とAdGuard for Androidでカスタムルールを設計・検証するための学習手順と注意点をまとめたものです。対応状況は変わるため、構文の可否はAdGuard公式リファレンスと実際のフィルタリングログで確認します。
 
 | <div align="center">メタデータ</div> | <div align="center">情報</div> |
 | :--- | :--- |
 | **Homepage** | [Red-Frame-X/Prototype](https://github.com/Red-Frame-X/Prototype) |
 | **License** | CC0-1.0 |
-| **Version** | 20260823 |
+| **Version** | 20260825 |
 
 ライセンス、第三者コンテンツの扱いおよび無保証については[`LICENSES.md`](../LICENSES.md)を参照してください。
 
@@ -20,7 +20,7 @@ AdGuardカスタムルールの設計
 
 カスタムルールを作成する前に、実行環境における技術的な制限と強みを正しく理解することが不可欠です。
 
-| 機能・特性 | AdGuard ブラウザ拡張機能 (MV3) | AdGuard for Android (CoreLibs) |
+| 機能・特性 | AdGuard ブラウザ拡張機能 MV3対応版 | AdGuard for Android (CoreLibs) |
 | :--- | :--- | :--- |
 | **主な動作レイヤー** | ブラウザ内部（DNR API依存） | OSシステム全体（ローカルVPN / MITMプロキシ） |
 | **通信遮断の仕組み** | 事前宣言されたDNRルールによるブラウザエンジン処理 | ローカルプロキシでのリクエスト解析・遮断 |
@@ -60,7 +60,7 @@ EasyListやAdGuard Base Filter等の購読フィルタと同じルールを、�
 
 ### Step 4：公式・コミュニティリポジトリの査読とAdGuard構文への翻訳
 
-世界中のメンテナーが改善を重ねるリポジトリ（AdGuardFilters, EasyList, uAssets等）のソースコードやIssueを読み解きます。
+世界中のメンテナーが改善を重ねるリポジトリ（AdguardTeam/AdguardFilters、EasyList、uBlockOrigin/uAssets等）のソースコードやIssuesを読み解きます。
 
 特にuBlock Origin公式（uAssets）で使われているアンチアドブロック突破の知見を参考にしつつ、そのままコピペするのではなく、AdGuardエンジンに適合した**スクリプトレット（`#%#//scriptlet`）構文**に正しく翻訳して適用するスキルを磨きます [^7]。
 
@@ -158,7 +158,7 @@ Andrey Meshkov氏らAdGuard開発チームは、 **「機能の技術的意味�
 
 * **背景・課題**：個人で数千行に及ぶ巨大なカスタムルールを維持・管理することは困難です。
 
-* **ベストプラクティス**：自作のユーザールールは数十〜数百行程度の「自身の利用環境向け調整用」に留めましょう。また、AdGuardエンジンはマッチング高速化のためにURLを4096文字で切り詰める仕様があるため、長すぎるURLをそのままルール化しないよう注意が必要です。汎用フィルタですり抜ける広告を見つけた場合は、GitHubのオープンなIssues等を通じてAdGuard公式メンテナーに報告し、大元のリスト（AdGuardFilters）を修正してもらうのが最も効率的です。
+* **ベストプラクティス**：自作のユーザールールは数十〜数百行程度の「自身の利用環境向け調整用」に留めましょう。また、AdGuardエンジンはマッチング高速化のためにURLを4096文字で切り詰める仕様があるため、長すぎるURLをそのままルール化しないよう注意が必要です。汎用フィルタですり抜ける広告を見つけた場合は、GitHub Issues等を通じてAdGuard公式メンテナーに報告し、大元のリスト（AdguardTeam/AdguardFilters）を修正してもらうのが最も効率的です。
 
 * **メリット**：日々のルール更新や仕様変更への追従という重いメンテナンス負荷を公式チームやコミュニティに分散でき、常に最適な状態を保てます。
 
@@ -216,7 +216,7 @@ Andrey Meshkov氏らAdGuard開発チームは、 **「機能の技術的意味�
 
 [^1]: **アシスタントツール / 要素選択ツール**
 
-  画面上で消したい広告をマウスやタップで選択し、対応するブロックルールを自動生成するツール。AdGuardブラウザ拡張機能やuBlock Originに搭載されており、初学者の学習に最適です。
+  画面上で消したい広告をマウスやタップで選択し、対応するブロックルールを自動生成するツール。AdGuard ブラウザ拡張機能やuBlock Originに搭載されており、初学者の学習に最適です。
 
   * **参照**：[uBlock Origin Wiki - Element picker](https://github.com/gorhill/ublock/wiki/Element-picker) / [AdGuard ナレッジベース - 独自の広告フィルタを作成する方法](https://adguard.com/kb/ja/general/ad-filtering/create-own-filters/)
 
@@ -289,7 +289,7 @@ Andrey Meshkov氏らAdGuard開発チームは、 **「機能の技術的意味�
 
 * [**AdGuard Content Blocking Filters（GitHub リポジトリ）**](https://github.com/AdguardTeam/AdguardFilters)
 
-  AdGuard公式チームおよび Alex-302 氏らによって統括・運用されている公式フィルタリスト集。Androidアプリ向けの `$app=` 指定やモジュール化されたルール構造の最高峰教材。
+  AdGuard公式チームによって運用されている公式フィルタリスト集。Androidアプリ向けの `$app=` 指定やモジュール化されたルール構造を確認できる一次資料です。
 
 * [**Reddit AdGuard コミュニティ**](https://www.reddit.com/r/Adguard/)
   
@@ -301,4 +301,4 @@ Andrey Meshkov氏らAdGuard開発チームは、 **「機能の技術的意味�
 
 * [**uBlock Origin Wiki：Static filter syntax**](https://github.com/gorhill/ublock/wiki/static-filter-syntax)
 
-  Raymond Hill 氏が管理する静的フィルタ構文の公式解説書。特異度リセット（`:where()`）やCSSセレクタのDOM評価コスト、DNR適合を理解するための必読バイブル。
+  Raymond Hill 氏が管理する静的フィルタ構文の公式解説書。特異度リセット（`:where()`）やCSSセレクタのDOM評価コスト、DNR適合を理解するためのリファレンス。
