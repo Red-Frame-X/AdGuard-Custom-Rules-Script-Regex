@@ -37,7 +37,7 @@ CI失敗の原因を「コードの不具合」と「Workflowの構成不備」�
 - 再現条件または再実行結果
 - 原因を推測する場合は、確認済みの事実と分けて記載
 
-自分のPull Requestで発生した失敗は、まずそのPull Requestの文脈で共有します。既存のmainブランチや共通Workflow自体の問題と確認できた場合は、RepositoryのCONTRIBUTINGやIssuesテンプレートに従って報告します。
+自分のPull Requestで発生した失敗は、まずそのPull Requestの文脈で共有します。既存のmainブランチや共通Workflow自体の問題と確認できた場合は、リポジトリのCONTRIBUTINGやIssuesテンプレートに従って報告します。
 
 ## 公式ドキュメント
 
