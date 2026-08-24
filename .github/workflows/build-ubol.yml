@@ -11,6 +11,9 @@ on:
       - 'uBOL Filter Converter/converter_impl.py'
       - 'uBOL Filter Converter/tests/test_converter.py'
       - '.github/workflows/build-ubol.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/build-ubol.yml'
   workflow_dispatch:
 
 concurrency:
