@@ -1,69 +1,26 @@
 # How to Use Gists
 
-GitHub Gistsを利用して、カスタムフィルタやUserScriptを各種拡張機能（AdGuard、Tampermonkeyなど）へ登録する手順です。
+GitHub Gistでファイルを公開し、Raw URLを利用するための最小限の手順です。
 
----
-
-| <div align="center">メタデータ</div> | <div align="center">情報</div> |
+| メタデータ | 情報 |
 | :--- | :--- |
 | **Homepage** | [Red-Frame-X/Prototype](https://github.com/Red-Frame-X/Prototype) |
 | **License** | CC0-1.0 |
-| **Version** | 20260804 |
+| **Version** | 20260824 |
 
 ライセンス、第三者コンテンツの扱いおよび無保証については[`LICENSES.md`](../LICENSES.md)を参照してください。
 
----
+## Gistの基本
 
-## 運用方法の比較：GistsとGitHubリポジトリ
+GitHub Gistは、コードやテキストファイルを公開・共有するためのGitHub機能です。各GistにはRaw表示があり、ファイル本体へ直接アクセスできます。
 
-フィルタやスクリプトを管理するにあたり、GistsとGitHubリポジトリのどちらを使用するかは一長一短があります。
+コミットに固定されたRaw URLでは、URL中にリビジョンを示すハッシュが含まれる場合があります。最新リビジョンを参照したい場合は、GistのRawリンクから現在のURLを確認してください。
 
-### GitHub Gists を使用する場合
-* **メリット**: アカウントさえあれば手軽に作成でき、単一のスクリプトやフィルタを即座に公開するのに向いています。
-* **デメリット**: 複数ファイルの管理が煩雑になります。Linter（構文チェック）やCI/CD（自動テスト・デプロイ）、Issueやプルリクエストの機能が使用できません。また、Raw URLのキャッシュが強いため、更新が反映されるまでに数分間のタイムラグが発生します。
+## AdGuardやUserScriptで利用する場合
 
-### GitHub リポジトリ を使用する場合
-* **メリット**: バージョン管理（リビジョン管理）が厳密に行え、Linterの恩恵を受けられます。Issueを通じてユーザーからフィードバックを受けるなど、保守性が格段に高まり安全な運用が可能です。
-* **デメリット**: Gitの基本操作（commit, pushなど）やディレクトリ構造の知識が必要となり、単一ファイルを置くだけの用途としては初期設定のハードルが少し上がります。
+外部URLからフィルタやUserScriptを読み込めるか、どのメタデータが必要かは、それぞれの製品仕様に従います。Gist側の仕様とAdGuard / Tampermonkey側の更新仕様は別なので、更新検知の条件をGistの挙動だけから推測しないでください。
 
----
+## 公式情報
 
-## Description 1：AdGuard > カスタムフィルタの登録
-
-1. GitHub Gistsで対象ファイルの **[Raw]** ボタンをクリックします。
-2. ブラウザのアドレスバーでURLを確認します。通常は以下のようになっています。
-
-   `https://gist.githubusercontent.com/ユーザー名/GistID/raw/長い英数字の羅列(コミットハッシュ)/ファイル名.txt`
-
-4. URLから `長い英数字の羅列/`（コミットハッシュ）の部分を削除し、以下のような形式にします。
-
-   `https://gist.githubusercontent.com/ユーザー名/GistID/raw/ファイル名.txt`
-   > **Note**: この処理を行うことで、特定の更新履歴に縛られず、常に最新版（HEAD）を参照するURLになります。
-
-6. 短縮したURLをブラウザで開き直し、最新の内容が表示されるか確認してください。
-   * **注意**: GitHubのRaw URLはキャッシュ（CDN）が効いているため、編集直後は内容が反映されない場合があります（数分程度のタイムラグがあります）。
-7. この短縮URLを、AdGuardの「カスタムフィルタ（またはDNSフィルタ）」として追加（インポート）します。
-8. `! Version:`、`! TimeUpdated:`、`! Expires:`などのフィルタメタデータは、配布物の版や推奨更新間隔を利用者に示すために記述します。
-   * `! Version:`を増やすことだけがAdGuardの更新検知条件ではありません。登録したURLの再取得はAdGuard側の更新操作・更新スケジュールに従います。
-   * URLがコミットハッシュを含まないことと、取得先が最新内容を返すことを確認してください。反映直後は配信キャッシュの影響が残る場合があります。
-
----
-
-## Description 2：Tampermonkey > UserScriptの登録
-
-1. GitHub Gistsで対象ファイルの **[Raw]** ボタンをクリックします。
-   * **重要**: UserScriptとして正しく認識させるため、ファイル名は必ず `.user.js` で終わるようにしてください。
-2. ブラウザのアドレスバーでURLを確認します。通常は以下のようになっています。
-
-   `https://gist.githubusercontent.com/ユーザー名/GistID/raw/長い英数字の羅列(コミットハッシュ)/ファイル名.user.js`
-
-4. URLから `長い英数字の羅列/`（コミットハッシュ）の部分を削除し、以下のような形式にします。
-
-   `https://gist.githubusercontent.com/ユーザー名/GistID/raw/ファイル名.user.js`
-   > **Note**: この処理を行うことで、特定の更新履歴に縛られず、常に最新版（HEAD）を参照するURLになります。
-
-6. 短縮したURLをブラウザで開き直し、最新の内容が表示されるか確認してください。
-7. この短縮URLを、Tampermonkeyの管理画面の「URLからインポート」する欄へ貼り付けるか、直接ブラウザで開いて「インストール」をクリックします。
-8. 今後スクリプトを更新する際は、コード内のメタデータ `@version` の数値を、前回登録時より大きく書き換えてください（例：`1.0` → `1.1`）。
-   * 数値が増加していることで拡張機能が変更を検知し、自動更新が行われます。
-   * **推奨事項**: スクリプトのメタデータ（UserScriptヘッダ）内に `@updateURL` と `@downloadURL` を記述し、そこに上記「短縮したURL」を指定しておくと、更新チェックの挙動がより確実になります。
+- [GitHub Docs — Creating gists](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)
+- [GitHub Docs — Forking and cloning gists](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists)
