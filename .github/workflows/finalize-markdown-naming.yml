@@ -1,0 +1,63 @@
+name: Finalize Markdown naming
+
+on:
+  push:
+    branches:
+      - docs/standardize-issues-label
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Finalize terminology and renamed links
+        shell: python
+        run: |
+          from pathlib import Path
+
+          index = Path("Markdown Notes/README.md")
+          text = index.read_text(encoding="utf-8")
+          text = text.replace(
+              "[`Aluminium OS（ALOS）Survey Report - Revised Edition.md`](Aluminium%20OS%EF%BC%88ALOS%EF%BC%89Survey%20Report%20-%20Revised%20Edition.md)",
+              "[`Googlebook & Aluminium Survey Report - Revised Edition.md`](Googlebook%20%26%20Aluminium%20Survey%20Report%20-%20Revised%20Edition.md)",
+          )
+          text = text.replace(
+              "[`Forced Updates via Crosh (Chrome OS Developer Shell).md`](Forced%20Updates%20via%20Crosh%20%28Chrome%20OS%20Developer%20Shell%29.md)",
+              "[`ChromeOS Manual Update and Troubleshooting.md`](ChromeOS%20Manual%20Update%20and%20Troubleshooting.md)",
+          )
+          text = text.replace(
+              "[`Collapse Comments on this Issues.md`](Collapse%20Comments%20on%20this%20Issues.md)",
+              "[`Collapse Comments on GitHub Issues and Pull Requests.md`](Collapse%20Comments%20on%20GitHub%20Issues%20and%20Pull%20Requests.md)",
+          )
+          index.write_text(text, encoding="utf-8")
+
+          guide = Path("Markdown Notes/ChromeOS & Android Optimization Guide.md")
+          text = guide.read_text(encoding="utf-8")
+          replacements = [
+              ("GitHub リポジトリ", "GitHubリポジトリ"),
+              ("Private リポジトリ", "プライベートリポジトリ"),
+              ("**Repository管理に適した作業例**", "**リポジトリ管理に適した作業例**"),
+              ("Repository、Issue、Pull RequestのURL", "リポジトリ、Issues、Pull RequestのURL"),
+              ("checkoutしたRepository", "checkoutしたリポジトリ"),
+              ("必要最小限のRepository", "必要最小限のリポジトリ"),
+              ("個人情報をRepository、Issues", "個人情報をリポジトリ、Issues"),
+              ("対象Repository", "対象リポジトリ"),
+          ]
+          for old, new in replacements:
+              text = text.replace(old, new)
+          guide.write_text(text, encoding="utf-8")
+
+          # This workflow is intentionally one-shot.
+          Path(".github/workflows/finalize-markdown-naming.yml").unlink()
+
+      - name: Commit final cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: finalize naming consistency"
+          git push
