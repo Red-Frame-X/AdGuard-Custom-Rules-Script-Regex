@@ -3,7 +3,7 @@ name: Temporary Amazon filter cleanup
 on:
   push:
     branches:
-      - amazon-filter-cleanup-20260824
+      - main
     paths:
       - '.github/workflows/temp-amazon-filter-cleanup.yml'
 
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: amazon-filter-cleanup-20260824
+          ref: main
       - name: Remove obsolete Amazon cosmetic rules
         run: |
           python - <<'PY'
@@ -41,7 +41,7 @@ amazon.co.jp##[id^="desktop-ad-center-"]
           if old not in s:
               raise SystemExit('Expected Amazon block not found; aborting')
           s = s.replace(old, new, 1)
-          s = re.sub(r'^! Version: .*$', '! Version: 202608241700', s, count=1, flags=re.M)
+          s = re.sub(r'^! Version: .*$', '! Version: 202608241720', s, count=1, flags=re.M)
           p.write_text(s, encoding='utf-8')
           PY
       - name: Commit cleanup and remove temporary workflow
@@ -51,4 +51,4 @@ amazon.co.jp##[id^="desktop-ad-center-"]
           git rm .github/workflows/temp-amazon-filter-cleanup.yml
           git add 'AdGuard Custom Rules/AdGuard Custom Rules - Red Frame X.txt'
           git commit -m 'Clean obsolete Amazon cosmetic filter rules'
-          git push origin HEAD:amazon-filter-cleanup-20260824
+          git push origin HEAD:main
