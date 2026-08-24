@@ -1,0 +1,106 @@
+name: Normalize Markdown names
+
+on:
+  push:
+    branches:
+      - docs/standardize-issues-label
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Normalize terminology from main baseline
+        shell: python
+        run: |
+          import re
+          import subprocess
+          from pathlib import Path
+
+          branch = "origin/main"
+          paths = [Path("README.md"), Path("AdGuard Custom Rules/README.md")]
+          paths += sorted(Path("Markdown Notes").glob("*.md"))
+
+          replacements = [
+              ("Chrome 拡張機能 AdGuard Browser Extension MV3", "AdGuard ブラウザ拡張機能 MV3対応版"),
+              ("AdGuardブラウザ拡張機能（MV3版）", "AdGuard ブラウザ拡張機能 MV3対応版"),
+              ("AdGuard ブラウザ拡張機能 (MV3)", "AdGuard ブラウザ拡張機能 MV3対応版"),
+              ("AdGuard Browser Extension MV3", "AdGuard ブラウザ拡張機能 MV3対応版"),
+              ("AdGuardブラウザ拡張機能", "AdGuard ブラウザ拡張機能"),
+              ("AdGuard Knowledgebase", "AdGuard ナレッジベース"),
+              ("Adguard開発チーム", "AdGuard開発チーム"),
+              ("ChromOS", "ChromeOS"),
+              ("AdguardTeam / AdguardFilters", "AdguardTeam/AdguardFilters"),
+              ("Yuki2718 / adblock2", "Yuki2718/adblock2"),
+              ("uBlockOrigin / uAssets", "uBlockOrigin/uAssets"),
+              ("CHANGELOG、Issueなど", "CHANGELOG、Issuesなど"),
+              ("上流Issueなど", "上流Issuesなど"),
+              ("Issue管理", "Issues管理"),
+              ("Issueテンプレート", "Issuesテンプレート"),
+              ("Issue / Pull Request", "Issues / Pull Request"),
+              ("False PositiveのIssue", "False PositiveのIssues"),
+              ("Issueを作成して報告", "GitHub Issuesで報告"),
+              ("Issueの作成・更新", "Issuesの作成・更新"),
+              ("Issue整理", "Issues整理"),
+              ("Issue例", "Issues例"),
+              ("Issue trackerなど問い合わせ先", "GitHub Issuesなど問い合わせ先"),
+              ("Repositoryや", "リポジトリや"),
+              ("Repository全体", "リポジトリ全体"),
+              ("Repositoryの", "リポジトリの"),
+              ("Repositoryを", "リポジトリを"),
+              ("Repositoryが", "リポジトリが"),
+              ("Repository固有", "リポジトリ固有"),
+              ("対象Repository", "対象リポジトリ"),
+              ("必要なRepository", "必要なリポジトリ"),
+              ("Private Repository", "プライベートリポジトリ"),
+              ("GitHub Repository", "GitHubリポジトリ"),
+              ("Git Repository", "Gitリポジトリ"),
+          ]
+
+          changed = []
+          for path in paths:
+              try:
+                  base = subprocess.check_output(
+                      ["git", "show", f"{branch}:{path.as_posix()}"],
+                      text=True,
+                  )
+              except subprocess.CalledProcessError:
+                  continue
+
+              text = base
+              for old, new in replacements:
+                  text = text.replace(old, new)
+
+              if text != base and path.parent.name == "Markdown Notes":
+                  text = re.sub(
+                      r"(\| \*\*Version\*\* \| )\d{8}( \|)",
+                      r"\g<1>20260825\2",
+                      text,
+                      count=1,
+                  )
+
+              if text != base:
+                  path.write_text(text, encoding="utf-8")
+                  changed.append(path.as_posix())
+
+          print("Changed files:")
+          for item in changed:
+              print(f"- {item}")
+
+      - name: Commit normalized terminology
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md "AdGuard Custom Rules/README.md" "Markdown Notes"
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "docs: standardize Markdown naming"
+          git push
