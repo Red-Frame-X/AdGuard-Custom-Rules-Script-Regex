@@ -14,7 +14,7 @@ GitHubのステータスチェック失敗を確認・報告するためのメ�
 
 GitHubでは、Pull RequestやコミットにChecks APIまたはCommit Status APIから状態が報告されます。Checks APIには `failure`、`timed_out`、`cancelled`、`action_required` などの結論があり、Commit Status APIには `error` と `failure` があります。
 
-`Verified` / `Unverified` はコミット署名の検証状態であり、CIのステータスチェックとは別の仕組みです。署名を必須とするRepositoryルールによってマージ可否に影響する場合はありますが、`Unverified` 自体をCI失敗とみなすのは不正確です。
+`Verified` / `Unverified` はコミット署名の検証状態であり、CIのステータスチェックとは別の仕組みです。署名を必須とするリポジトリルールによってマージ可否に影響する場合はありますが、`Unverified` 自体をCI失敗とみなすのは不正確です。
 
 ## 失敗時の確認手順
 
@@ -26,7 +26,7 @@ GitHubでは、Pull RequestやコミットにChecks APIまたはCommit Status AP
 
 CI失敗の原因を「コードの不具合」と「Workflowの構成不備」の2種類だけに限定することはできません。外部サービス障害、runner環境、依存関係、権限、Secretなども原因になり得るため、以前の版にあった二分類は統合しました。
 
-## Issues / Pull Requestで報告する場合
+## Issues / Pull Requestsで報告する場合
 
 最低限、次の情報を添えると原因を追いやすくなります。
 
