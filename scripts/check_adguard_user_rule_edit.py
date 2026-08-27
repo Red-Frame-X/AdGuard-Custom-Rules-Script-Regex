@@ -50,9 +50,8 @@ def main() -> int:
     if "\r" in text:
         fail("CR characters detected; canonical filter must use LF line endings")
 
-    if not text.endswith("\n"):
-        fail("canonical filter must end with a newline")
-
+    # Do not fail solely on a legacy missing final newline. When comparing a PR,
+    # only reject if the base had a final newline and the edit removed it.
     lines = text.splitlines()
     trailing = [i for i, line in enumerate(lines, 1) if line.rstrip() != line]
     if trailing:
@@ -67,6 +66,9 @@ def main() -> int:
     if args.base_ref:
         base = git_show(args.base_ref, FILTER)
         if base is not None:
+            if base.endswith("\n") and not text.endswith("\n"):
+                fail("edit removed the canonical filter's final newline")
+
             before = active_rules(base)
             removed = len(before) - len(rules)
             if removed > max(10, len(before) // 4):
