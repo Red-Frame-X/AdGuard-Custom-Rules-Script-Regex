@@ -3,7 +3,7 @@ name: Remove Royal Desert Sand Dark Tabs
 on:
   push:
     branches:
-      - chore/remove-royal-desert-sand-dark-tabs
+      - main
 
 permissions:
   contents: write
