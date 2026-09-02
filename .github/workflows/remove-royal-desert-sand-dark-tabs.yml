@@ -24,12 +24,15 @@ jobs:
 
           path = Path("Markdown Notes/ChromeOS & Android Optimization Guide.md")
           text = path.read_text(encoding="utf-8")
-          block = '''* **[Royal Desert Sand Dark Tabs](../royal_desert_sand_dark_tabs.zip)**
-
-  * **説明**：Royal Desert Sand系の配色をベースに、バックグラウンドタブを濃いブルー系に調整し、アクティブタブと非アクティブタブを見分けやすくしたカスタムChromeテーマ。新しいタブページの背景はグレー系。
-
-  * **導入手順**：ZIPを展開し、Chromeの「拡張機能」ページでデベロッパーモードを有効にして、展開したテーマフォルダを「パッケージ化されていない拡張機能を読み込む」から指定して利用します。
-'''
+          lines = [
+              "* **[Royal Desert Sand Dark Tabs](../royal_desert_sand_dark_tabs.zip)**",
+              "",
+              "  * **説明**：Royal Desert Sand系の配色をベースに、バックグラウンドタブを濃いブルー系に調整し、アクティブタブと非アクティブタブを見分けやすくしたカスタムChromeテーマ。新しいタブページの背景はグレー系。",
+              "",
+              "  * **導入手順**：ZIPを展開し、Chromeの「拡張機能」ページでデベロッパーモードを有効にして、展開したテーマフォルダを「パッケージ化されていない拡張機能を読み込む」から指定して利用します。",
+              "",
+          ]
+          block = "\n".join(lines)
           if text.count(block) != 1:
               raise SystemExit(f"expected exactly one theme documentation block, found {text.count(block)}")
           path.write_text(text.replace(block, ""), encoding="utf-8")
