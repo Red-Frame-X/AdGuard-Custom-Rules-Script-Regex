@@ -19,7 +19,7 @@ class RegexModifierParsingTests(unittest.TestCase):
         self.assertEqual(result.reason, "non-re2-regex")
 
     def test_non_re2_backreference_with_end_anchor_is_excluded(self):
-        result = converter.convert_line(r"/(tracker)\\1$/")
+        result = converter.convert_line(r"/(tracker)\1$/")
         self.assertIsNone(result.output)
         self.assertEqual(result.reason, "non-re2-regex")
 
@@ -40,8 +40,8 @@ class RegexModifierParsingTests(unittest.TestCase):
         self.assertEqual(result.status, "converted")
 
     def test_escaped_slash_does_not_close_regex_early(self):
-        result = converter.convert_line(r"/path\\/tracker$/$xhr")
-        self.assertEqual(result.output, r"/path\\/tracker$/$xmlhttprequest")
+        result = converter.convert_line(r"/path\/tracker$/$xhr")
+        self.assertEqual(result.output, r"/path\/tracker$/$xmlhttprequest")
         self.assertEqual(result.status, "converted")
 
 
