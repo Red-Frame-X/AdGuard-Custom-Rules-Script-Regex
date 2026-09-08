@@ -1,0 +1,51 @@
+name: Patch Optimization Guide
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/patch_optimization_guide.py'
+      - '.github/workflows/patch-optimization-guide.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: patch-optimization-guide-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Apply fail-closed corrections
+        run: python scripts/patch_optimization_guide.py
+
+      - name: Commit guide if changed
+        run: |
+          set -euo pipefail
+          guide='Markdown Notes/ChromeOS & Android Optimization Guide.md'
+          if git diff --quiet -- "$guide"; then
+            echo 'No guide changes detected.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$guide"
+          git commit -m 'docs: correct optimization guide factual claims'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push; then
+              exit 0
+            fi
+            if [[ "$attempt" -eq 5 ]]; then
+              echo 'Failed to push after 5 attempts.' >&2
+              exit 1
+            fi
+            sleep $((attempt * 2))
+          done
