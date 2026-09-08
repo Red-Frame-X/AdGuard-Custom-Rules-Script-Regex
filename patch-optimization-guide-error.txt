@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/runner/work/Prototype/Prototype/scripts/patch_optimization_guide.py", line 90, in <module>
-    regex_once(
-  File "/home/runner/work/Prototype/Prototype/scripts/patch_optimization_guide.py", line 28, in regex_once
-    raise RuntimeError(f"expected exactly one regex match, got {count}: {pattern[:80]!r}")
-RuntimeError: expected exactly one regex match, got 0: '\\*\\*Web版YouTubeについての留意点\\*\\*\\n\\nYouTube Anti-Adblock回避ルールは、.*?\\(\\[Issues #27415\\]'
