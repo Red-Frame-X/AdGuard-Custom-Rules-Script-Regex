@@ -8,13 +8,12 @@ ChromeOS & Android 最適化ガイド
 | :--- | :--- |
 | **Homepage** | [Red-Frame-X/Prototype](https://github.com/Red-Frame-X/Prototype) |
 | **License** | CC0-1.0 |
-| **Version** | 20260825 |
+| **Version** | 20260908 |
 
 ライセンス、第三者コンテンツの扱いおよび無保証については[`LICENSES.md`](../LICENSES.md)を参照してください。
 
 ## Subscription
-Googleの多くのサービスでは、年額サブスクリプションを「月額 × 約10か月分」の料金で提供しており、割安になります。
-ただし、年額サブスクリプションは一度支払うと、契約期間の途中で解約しても日割り計算による払い戻しは行われません。
+一部のサブスクリプションでは月額プランより割安な年額プランが用意されていますが、割引率、途中解約、払い戻しの条件はサービスごとに異なります。契約前に公式の料金ページと解約・返金条件を個別に確認します。
 
 **利用中のサブスクリプション一覧**
 
@@ -53,7 +52,7 @@ Googleの多くのサービスでは、年額サブスクリプションを「�
 不具合の内容をコピー＆ペーストできるようメモにまとめ、お問い合わせ方法からチャットを選択します。
 * **[Google One ヘルプ > お問い合わせ](https://support.google.com/googleone/gethelp)**
 
-なお、ahamo回線契約者は基本的にdocomoのサポートを受けることができません。
+docomo経由で契約したサービスの問い合わせ先やサポート範囲は、契約内容と窓口によって異なります。ahamoを含め、一律にサポート不可とは判断せず、対象サービスの公式窓口案内を確認します。
 * **[docomo｜ご意見・ご要望](https://www.docomo.ne.jp/support/inquiry/feedback/?hl=ja-JP)** > 「ご意見・ご要望はこちら 開く+」をクリックする。
 
 過去に同様の不具合がなかったかRedditで検索したところ、既存の有料プランにGoogle Pixelの購入特典を重複適用した結果、Google One メンバーシップに問題が発生したという報告も見つかりました。
@@ -64,14 +63,13 @@ Googleの多くのサービスでは、年額サブスクリプションを「�
 
 問題が長期化し、週に1回程度のペースでGoogle One ヘルプに進捗確認を求めても、定型文の返答しか得られないことがあります。GoogleとdocomoにGoogle Oneの不具合を問い合わせても、たらい回しにされるばかりで、問題が解決する見込みがありませんでした。
 
-これらの不具合の多くは、複数の契約がGoogle One メンバーシップ上で重複し、システムが矛盾した状態に陥ることが原因と考えられます。Google One メンバーシップの重複を整理した後、時間の経過をおいても、それで全ての不具合が直るかどうかは分かりません。
+この事例では複数の購入特典・有料プランを重ねた後に不具合が発生しましたが、Googleが一般的な原因として『契約の重複』を公表していることまでは確認できていません。再発防止のため、自分の環境では新しい特典やプランを有効化する前に、既存プランとの併用可否、切り替え条件、残存期間の扱いを公式ページまたはサポートで確認します。
 
-**❗️いずれにしろ、Google One メンバーシップに適用する購入特典や有料プランは1つに限定するべきです。**
+**Google Oneの契約を整理する場合**
 
-**Google One メンバーシップ・不具合解決の最終手段**
+通常は、まずGoogle Oneのプラン変更・解約手順と、購入元がGoogle Play / App Store / 携帯通信事業者などの第三者かを確認します。第三者経由の契約は、その提供元で管理が必要な場合があります。
 
-[Google アカウント](https://myaccount.google.com/) > データとプライバシー > サービスを削除 > パスワード・PIN入力による本人確認 > 「Google サービスの削除」から「Google One」の情報削除を選択することで、Google One メンバーシップの初期化が可能です。
-ただし、Google Oneに関連付けられた情報はすべて削除されるため、Google One メンバーシップに付与されていた購入特典や有料プランも失われます。
+Google公式ヘルプには、特定の契約移行や解約状況でGoogle Oneサービス自体を削除する手順もありますが、一般的な『不具合の初期化』として常用する操作ではありません。サービス削除はプラン関連データや設定等に影響するため、実行前に公式ヘルプとサポートで影響範囲を確認します。Google Drive、Gmail、Googleフォトの保存ファイルが操作直後に一括削除される、という意味ではありません。
 
 * **参考サイト**： [r/GoogleOne｜Reddit](https://www.reddit.com/r/GoogleOne/)
 
@@ -121,7 +119,7 @@ Chrome 138以降でViolentmonkeyを使用する場合は、`chrome://extensions`
 * **[サクラチェッカーをAmazon内に直接表示 🔍️](https://greasyfork.org/ja/scripts/533121)**：Amazonの商品ページに、サクラチェッカーのスコアと判定結果を高速で自動表示する。
 
 ### 検索・ブラウジング補助
-* **[Buster: Captcha Solver for Humans](https://chromewebstore.google.com/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl)**：音声認証とAIを活用してreCAPTCHAを自動で突破する。
+* **[Buster: Captcha Solver for Humans](https://chromewebstore.google.com/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl)**：音声チャレンジを利用してCAPTCHAの解答を支援する拡張機能。対象サービスの利用規約や仕様変更により利用できない場合があります。
 * **[Cesturefy](https://chromewebstore.google.com/detail/cesturefy-navigate-operat/bifgfhokfobhebifcogneljkpaaloonp)**：マウス、ロッカー、ホイールジェスチャーでブラウザ操作を効率化する拡張機能。
 * **[google-search-title-qualified](https://chromewebstore.google.com/detail/google-search-title-quali/bjcnnhojddnonjmhlpdjcdcfmofliagb)**：Google検索結果にサイト本来のタイトルを表示させる。
 * **[Search Result Previews](https://chromewebstore.google.com/detail/search-result-previews/cedcejfiniojnlhlfhcppenochinijfo)**：検索結果のリンク横にウェブサイトのプレビュー画像（サムネイル）を表示させる。
@@ -160,13 +158,6 @@ Chrome 138以降でViolentmonkeyを使用する場合は、`chrome://extensions`
 
 **参考サイト**
 * [Kami-Browser-Add-on｜Kdroidwin](https://github.com/Kdroidwin/Kami-Browser-Add-on)
-
----
-
-## ChromeOS Chrome テーマ
-* **[Chrome Web Store テーマ](https://chromewebstore.google.com/category/themes)**
-* **[Dark Horizon](https://chromewebstore.google.com/detail/dark-horizon/ncjjeokpcnllmmbbipeaagmdpdpiadin)**：Chrome標準テーマに近い外観を、より暗い配色にしたシンプルなダークテーマ。
-* **[Royal Desert Sand](https://chromewebstore.google.com/detail/royal-desert-sand/nnieplejkjaodhemceganohmdkfekkem)**：デザートサンド（砂漠の砂）系の落ち着いた暖色とロイヤルブルーを組み合わせた、シンプルで上品なChromeテーマ。
 
 ---
 
@@ -741,13 +732,11 @@ SNSでは短期間で高収入を得られる副業や闇バイトの勧誘が�
 
 **！[日本電話番号検索](https://www.jpnumber.com/)**
 
-**注意が必要な特殊な電話番号**
-1. `+` で始まる or `+81-` → 国際電話で折り返し電話をすると高額な通話料や利用料が発生する場合があります。
-2. 末尾が `-0110` → 警察署の番号を装った詐欺電話の可能性があります。
-3. `0120-` or `0800-` → 電話を受けた側（フリーダイヤルの契約者）が通話料を全額負担します。
-4. `050-` → IP電話の番号を悪用した迷惑電話である可能性があります。
-5. `0570-` → ナビダイヤルの通話料は、発信者（電話をかけた側）が全額負担します。
-6. `0180-` → 情報料として通話料とは別に料金が発生します。
+**電話番号表示だけで相手を信用しない**
+
+警察庁は、実在する警察署等の電話番号を偽装して表示させる手口を確認しています。末尾が`0110`であることや、日本の国番号`+81`を含むことだけで、本物・詐欺のどちらとも判定できません。警察官を名乗る電話で捜査対象などと言われた場合は一度電話を切り、相手が名乗った所属・氏名を控えたうえで、自分で調べた警察署の公式番号または警察相談専用電話`#9110`へ確認します。
+
+`0120` / `0800`、`050`なども正規の企業・サービスで広く使われています。番号種別だけを詐欺判定に使わず、金銭、暗証番号、認証コード、遠隔操作アプリの導入などを要求された場合は特に慎重に確認します。
 
 **フィッシング詐欺**
 
@@ -761,7 +750,7 @@ SNSでは短期間で高収入を得られる副業や闇バイトの勧誘が�
 
 ログインやECサイト利用時にGoogleなどの検索エンジンの検索結果を経由する癖をつけていると、SEOポイズニングの餌食になる可能性があります。SEOポイズニングとは、SEO技術を悪用し、不正サイトを検索結果上位に表示させて、ユーザーをマルウェア感染や詐欺サイトに誘導するサイバー攻撃です。
 
-ブラウジング中にコンテンツブロッカーを使うことで、特殊詐欺に遭う確率を大幅に下げることができるので、多層防御の1つに加えてもよいかと思います。個人的に特殊詐欺に遭う確率を最小限に抑えることを最優先事項にしているので、広告を非表示にするサブスクリプションの利用も考慮しています。
+コンテンツブロッカーは、一部の悪質広告、既知の不正ドメイン、不要なリダイレクトへの接触機会を減らす補助策にはなりますが、フィッシングや特殊詐欺そのものを防げる保証はありません。OS・ブラウザの更新、パスワードマネージャー、パスキーや多要素認証、公式アプリ・ブックマークからのアクセス、電話やメッセージ内容の独立確認と組み合わせます。
 
 **参考サイト**
 * [詐欺サイト対策 Wiki*（Kdroidwin氏寄稿）](https://wikiwiki.jp/antiscamsite/)
@@ -783,13 +772,13 @@ SNSでは短期間で高収入を得られる副業や闇バイトの勧誘が�
 **コンテンツブロックフィルタ**
 * **[AdGuard 公式フィルタ](https://github.com/AdguardTeam/AdguardFilters)**：AdGuardの接頭語 or `#recommended` のタグが付く各種フィルタ + 日本語フィルタ。
 * **[Online Malicious URL Blocklist](https://gitlab.com/malware-filter/urlhaus-filter)**：uBlock Origin ＆ AdGuardの標準セキュリティフィルタ。
-* **[uBlock Origin – Badware risks](https://github.com/uBlockOrigin/uAssets)**：Yuki2718氏がフィルタの監修に関わっています。
+* **[uBlock Origin – Badware risks](https://github.com/uBlockOrigin/uAssets)**：uBlock Originの公式uAssetsで管理される悪質サイト対策用フィルタ。個々のルールの作者・レビュー担当は公開履歴で確認します。
 
 ※ ChromeのDNR静的ルールは、拡張機能ごとに30,000件以上が保証されます。保証枠を超えて利用できる件数は、他の拡張機能の使用状況などで変動するため、固定の上限として扱わず `getAvailableStaticRuleCount()` で確認する必要があります。
 
 **カスタムフィルタ・ユーザールール**
 * **カスタムフィルタ**
-  * **[AdGuard Japanese filter Plus](https://github.com/Yuki2718/adblock2)**：Yuki2718氏自身がフィルタの監修をしています。
+  * **[AdGuard Japanese filter Plus](https://github.com/Yuki2718/adblock2)**：Yuki2718氏の公開リポジトリでメンテナンスされている追加フィルタ。
   * **[AdGuard module - not for independent use](https://github.com/Yuki2718/adblock2)**：上記フィルタのmodule。
   * **[自作のカスタムフィルタ](https://github.com/Red-Frame-X/AdGuard-Custom-Rules-UserScript-Regex)**：各フィルタ作者様のルールを参考にしたり、自作のルールと組み合わせたりして作成しています。
 
@@ -842,19 +831,9 @@ Issuesのコメント欄を下書きし、Geminiに推敲とMarkdown形式への
 * **[Chrome Web Store](https://chromewebstore.google.com/detail/adguard-%E5%BA%83%E5%91%8A%E3%83%96%E3%83%AD%E3%83%83%E3%82%AB%E3%83%BC/bgnkhhnnamicmpeenaelnjfhikgbkllg)**
 * **[HP](https://adguard.com/ja/adguard-browser-extension/overview.html)** / **[GitHub](https://github.com/AdguardTeam/AdguardBrowserExtension)**
 
-AdGuard ブラウザ拡張機能 MV3対応版でスクリプトレットを含む高度なルールを使用する場合は、拡張機能の内部設定から**ユーザースクリプトを許可する**トグルを有効にする必要があります。組み込み・カスタムフィルタは、拡張機能本体の更新に加え、対応バージョンではポップアップまたはフィルタ画面から手動更新を確認できます。
+AdGuard ブラウザ拡張機能 MV3では、Custom filtersやJavaScriptを必要とするユーザールールのためにChromeのUser Scripts APIを使用します。AdGuard公式によると、Chrome 138以降では `chrome://extensions` > AdGuard > 詳細から **ユーザースクリプトを許可する** を有効にします。Chrome 138未満ではデベロッパーモードが必要です。
 
-v5.2.400以降、拡張機能と組み込み・カスタムフィルタは、「ツールバーのアイコン > 右上ポップアップの↻」または「フィルタ > ↻アップデートを確認する」から最新状態を確認できます。
-
-v5.2.400で強化された機能は、設定画面内でカスタムフィルタを手動で更新できるようにするものです。
-
-（※ Chromeの拡張機能管理画面での「更新ボタン↻」では、カスタムフィルタの再読み込みがトリガーされないケースが報告されています。 [Issues #2944](https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2944)  / [Issues #3016](https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3016)）
-
-[AdGuard ブラウザ拡張機能 MV3対応版 v5.4.1.3](https://github.com/AdguardTeam/AdguardBrowserExtension/releases/tag/v5.4.1.3)
-
-ポップアップパネルの更新ボタン↻、またはフィルタセクションの更新ボタン↻から、カスタムフィルタを手動で更新できるようになりました。`! Version:` は版の識別と更新状況の確認に有用ですが、URLの再取得そのものを成立させる唯一の条件ではありません。
-
-* **[AdGuard ブラウザ拡張機能 MV3対応版の解説](https://adguard.com/kb/ja/adguard-browser-extension/mv3-version/)**
+v5.2系でMV3版へCustom filtersが再導入され、v5.4.1.3ではCustom filtersが拡張機能本体の更新とは独立して再び更新できるようになりました。組み込みフィルタとURL購読のCustom filtersでは更新経路が異なるため、同じ仕組みとして扱いません。`! Version:` はフィルタ版の識別には有用ですが、URL再取得の唯一の成立条件ではありません。
 
 **カスタムフィルタで購読する場合**
 
@@ -909,7 +888,7 @@ v5.2.400で強化された機能は、設定画面内でカスタムフィルタ
 
 **Web版YouTubeについての留意点**
 
-YouTube Anti-Adblock回避ルールは、uBlock Origin開発チームの解析を参考にAdGuardが開発・調整しています。YouTube Premium未加入者がカスタムフィルタや拡張機能を使いすぎると、検知されやすくなります。無料利用する際は、公式ルールのみの使用が推奨されます。要件を満たさない報告はuBlock Origin開発チーム・AdGuard開発チームの負担となります。Yuki2718氏はuBlock Origin開発チームに所属しながらWeb版YouTubの解析を行っています（[Issues #27415](https://github.com/uBlockOrigin/uAssets/issues/27415)。 / [Issues #28707](https://github.com/uBlockOrigin/uAssets/issues/28707)）。
+YouTubeの広告配信やアンチ広告ブロック対策は頻繁に変更されます。問題報告時は、各プロジェクトの公式案内に従い、フィルタを最新化したうえで、追加フィルタ・UserScript・他のブロッカーを一時的に外して再現性を確認します。特定の開発者の所属、レビュー、承認関係は、本人またはプロジェクトが公開した資料で確認できる範囲を超えて推測しません。
 
 **𝕏/Twitter ルール作り資料｜uBlock Origin**
 
@@ -975,7 +954,7 @@ Android向けの[公式FAQ](https://www.zenz-solutions.de/faq/)に沿った設�
 
 ログのドメインを長押しすると、ブラック/ホワイトリストへの登録が可能です。
 
-※ 実態はDNSブロッカーのため、ABP形式の構文（`||example.com^`）には対応していません。
+※ ダウンロードするブロックリストはhosts / domains-only系の単純な形式を使用します。`additionalHosts.txt`では`!`によるホワイトリスト、`*`ワイルドカード、`>`によるカスタムIP指定など独自の追加構文を利用できますが、Adblock Plus形式の`||example.com^` / `@@||example.com^`とは別の構文です。
 
 **! 購読済みのDNSブロックリスト・hostsファイル**
 * HaGeZi's Normal DNS Blocklist
@@ -1017,7 +996,7 @@ Android向けの[公式FAQ](https://www.zenz-solutions.de/faq/)に沿った設�
 
 **HTTPSフィルタリング**
 
-Android版Chromeなどで高精度なブロックを行うには必須です。暗号化通信を一時解析し、要素をブロックします。Personal CA証明書のインストールが必要です。
+HTTPSサイトや対応アプリの暗号化通信を内容まで検査して、ネットワークルール、要素隠蔽、スクリプトレット等を十分に適用するにはHTTPSフィルタリングが重要です。AdGuardは端末内で通信を復号・検査して再暗号化するため、ユーザーCA証明書のインストールが必要です。HTTPSフィルタリングを無効にしてもDNSフィルタリングや一部のネットワーク遮断まで全て無効になるわけではありませんが、暗号化された通信内容を利用する高度な処理は制限されます。
 
 **CoreLibs**
 
@@ -1066,14 +1045,13 @@ Android版Chromeなどで高精度なブロックを行うには必須です。�
 
 ③ **DNSユーザーフィルタ** で自作例外ルール（`@@`）を作成。
 
-**DNSサーバー & ChromeOS追加設定**
+**DNSサーバー設定**
 
-AdGuard内でDNSを設定します（Google Public DNS推奨）。
-ChromeOS追加設定: 設定 > ネットワーク > Wi-Fi > ルーター > ネームサーバー > [Google ネームサーバー](https://developers.google.com/speed/public-dns/docs/using?hl=ja#chromeos) に変更。
+DNSリゾルバは、必要な暗号化方式、プライバシーポリシー、可用性、速度を基準に選びます。Google Public DNSは選択肢の一つですが、一律の推奨とはしません。AdGuard for AndroidのDNS保護を利用する場合は、OS側のネームサーバー変更を追加すると経路が複雑になるため、目的と実際の問い合わせ経路をログで確認します。
 
 **トラブルシューティング**
-* **Wi-Fi接続不良**：IPv6フィルタリングをOFFにする。
-* **フィルタ自動更新不可**：ホーム画面の↻を手動タップ。
+* **Wi-Fi接続不良**：IPv6フィルタリングを一律に無効化しません。AdGuard停止時との比較、Filtering log、IPv4/IPv6の接続状況を確認し、IPv6との関連が再現できた場合だけ診断目的で変更し、改善しなければ元に戻します。
+* **フィルタ更新の確認**：自動更新が疑わしい場合は、使用中バージョンのUIから手動更新を実行して切り分けます。固定のボタン位置は公式ヘルプと実画面で確認します。
 
 **拡張機能（有償）**
 * [tinyShield](https://github.com/FilteringDev/tinyShield/blob/main/README.ja.md)（Ad-Shield対策、原則不要）
@@ -1116,19 +1094,17 @@ ChromeOS追加設定: 設定 > ネットワーク > Wi-Fi > ルーター > ネ�
 
 **対処法（※ローカルVPNの安定化）**
 
-**Android 17の「デバイスの管理」を有効化（Pixel 10aで確認）**
+**Android 17 / Pixelでの常駐設定**
 
-Android 17では、**設設定 > セキュリティとプライバシー > その他のセキュリティとプライバシー > デバイス管理 > アドガード** を開き、AdGuardのトグルをONにします。これにより、システムの最適化によってAdGuardがバックグラウンドで停止されにくくなり、アプリを閉じている間も保護を維持しやすくなります。
+Android 17だからという理由だけで、AdGuardを『デバイス管理』へ登録するとタスクキルを防げるという一般仕様は、Android DevelopersまたはAdGuard公式資料から確認できませんでした。この設定を常駐対策として必須扱いしません。
 
-* この項目が表示される端末・OSビルドでのみ設定できます。メーカーやAndroidのバージョンによって、項目名や経路が異なる場合があります。
-* バックグラウンド停止を完全に防ぐ保証はありません。Android 17では端末のRAM容量に応じたアプリのメモリ上限も導入されており、上限を超えたプロセスは終了される場合があります（[Android Developers](https://developer.android.com/about/versions/17/behavior-changes-all#app-memory-limits)）。
-* あわせて、Androidの**常時接続VPN**と**VPN以外の接続をブロック**を必要に応じて設定し、AdGuardのバッテリー使用量を**制限なし**にすると安定性の向上が期待できます（[AdGuard公式タスクキル対策ガイド](https://adguard.com/kb/ja/adguard-for-android/solving-problems/background-work/)）。ただし、「VPN以外の接続をブロック」を有効にすると、AdGuard停止時やVPN接続失敗時に通信できなくなる点に注意してください。
+バックグラウンド停止が問題になる場合は、AdGuard公式のメーカー別ガイドに沿ってバッテリーのバックグラウンド制限を確認し、Androidの **常時接続VPN** を利用します。**VPN以外の接続をブロック** は、VPN停止時にも通信を許可しないfail-closed機能であり、常駐性を高める機能ではありません。必要な通信ポリシーを理解した場合だけ有効にします。Android 17にはアプリのメモリ制限もあるため、停止原因はログを確認して切り分けます。
 
 ① v4.6.5以下（例: [v3.6.11](https://github.com/AdguardTeam/AdguardForAndroid/releases/tag/v3.6.11)）へダウングレード。
 
 ② v4.7.1〜v4.9でウォッチドッグ機能を有効化。
 
-③ **MacroDroidを利用したVPN自動再接続タスクの作成**（最も効果的）▶ [MacroDroid](https://play.google.com/store/search?q=MacroDroid&c=apps) をインストール ▶ マクロの作成（[画像参考](https://imgur.com/a/5Xi8h9r)）
+③ **MacroDroidを利用したVPN自動再接続タスクの作成**（個人環境での復帰補助ワークアラウンド）▶ [MacroDroid](https://play.google.com/store/search?q=MacroDroid&c=apps) をインストール ▶ マクロの作成（[画像参考](https://imgur.com/a/5Xi8h9r)）
 
   * **AdGuard側**: 設定 ⚙ > 一般設定 > 詳細設定 > 自動化 > トグルONにし「パスワード」をメモ
   * **MacroDroid側 トリガー**：「VPN状態の変化時」> 無効
@@ -1166,13 +1142,13 @@ Android 17では、**設設定 > セキュリティとプライバシー > そ�
 
 **結論**
 
-* WebViewの影響は v4.10 以降で修正されました。OSによるタスクキル問題は常時接続VPNの有効化やMacroDroidの導入で対処します。（[タスクキル対策ガイド](https://adguard.com/kb/ja/adguard-for-android/solving-problems/background-work/)）
+* WebView関連の既知問題は v4.10系で修正されています。バックグラウンド停止については、まずAdGuard公式のメーカー別タスクキル対策と常時接続VPNを確認します。MacroDroidは公式の必須手順ではなく、自分の環境で必要性と副作用を確認して使う補助策です。（[タスクキル対策ガイド](https://adguard.com/kb/ja/adguard-for-android/solving-problems/background-work/)）
 
 ---
 
 ## AndroidのプライベートDNSを利用したDNSブロック
 
-スマートフォンの「プライベートDNS」設定に特定のホスト名を入力するだけで、端末全体に表示される広告を非表示にすることができます。
+スマートフォンの「プライベートDNS」へ広告・トラッカー遮断を行うDNSサービスのホスト名を設定すると、DNSで識別できる対象ドメインへの接続を端末全体で遮断できます。同一ドメインから配信される広告、ページ内要素、URLパス単位の広告などはDNSだけでは除去できません。
 
 **設定手順**
 
@@ -1182,10 +1158,7 @@ Android 17では、**設設定 > セキュリティとプライバシー > そ�
   4. **「プライベートDNSプロバイダのホスト名」** を選択する。
 
 **設定するホスト名**
-  * 入力欄に以下のホスト名を入力して保存します。現在はより安定している**新バージョン**の入力が推奨されています。
-  
-    * **新バージョン（推奨）**：`dns.adguard-dns.com`
-    * **旧バージョン** ：`dns.adguard.com`
+  * AdGuardのパブリックDNSを使う場合、AdGuard公式が現在案内しているデフォルトサーバーのホスト名は `dns.adguard-dns.com` です。過去のホスト名を『旧版』として併記して常用せず、公式の接続ページに掲載されている現在の値を使用します。
 
 **コンテンツブロックの対象**
   * **ブラウザ**（ChromeでのWebブラウジングなど）
@@ -1288,21 +1261,17 @@ ChromeOS上での完全な動作保証はありません。（[動作環境](htt
 
 ---
 
-## Aluminium OS / Googlebook / Linux
-2026年5月のGoogleによる公式発表（The Android Showなど）やリーク情報により、ChromeOSの今後のロードマップが明確になりました。Linux®ディストリビューションの移行についても少し触れておきます。
+## Googlebook / Aluminium / Linux
+Googleは2026年5月に新しいノートPCカテゴリ **Googlebook** を発表しました。公式説明では、AndroidとChromeOSの長所を組み合わせ、Android tech stackの一部を基盤とする製品とされています。Acer、ASUS、Dell、HP、Lenovoが初期パートナーとして公表され、2026年秋の提供開始が予告されています。
 
-* Aluminium OS（通称：ALOS）: Androidのカーネルやフレームワークをベースに、デスクトップ環境（ChromeOSのUI/UX）と高度なAI（Gemini）をネイティブ統合した新世代OS。
+`Aluminium`は、発表前の求人情報などから報道されたAndroidベースPCプロジェクトのコードネームです。Googleは製品発表で『Aluminium OS』または『ALOS』を正式名称として使用していません。このため、Googlebookが『Aluminium OSを搭載する』、ChromeOSが特定年に終了する、既存ChromebookがGooglebook系OSへ移行するといった未発表事項は確定情報として扱いません。
 
-* Googlebook: Aluminium OSを搭載し、2026年秋以降の展開が予定されている新しいプレミアムデバイス。
+詳細は [Googlebook / Aluminium 調査レポート](Googlebook%20%26%20Aluminium%20Survey%20Report%20-%20Revised%20Edition.md) に分離して記録します。
 
-既存のChromeOSは2034年頃まで段階的にサポート（セキュリティ保守等）が継続される見込みですが、Androidアプリのネイティブ動作やシステムレベルのAI統合においては、Aluminium OSへの移行が今後のメインストリームとなります。
-
-**ChromeOSの今後の動向**
-* [Googlebook 正式発表後もChromebookは継続。Googleが改めて明言した10年サポートと移行方針](https://helentech.jp/news-chromebook-continues-after-googlebook-86132/)
-* [Aluminium OSの完全リリースは2028年以降の可能性](https://helentech.jp/news-81647/)
-* [ChromeOSは2034年に段階的廃止へ](https://internet.watch.impress.co.jp/docs/yajiuma/2083598.html)
-* [Aluminium OSの展開。2026年後半リリース予定](https://helentech.jp/news-chromebook-82961/)
-* [AluminiumOS - Android For PC](https://aluminium--os-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=ja&_x_tr_hl=ja&_x_tr_pto=wapp)
+**公式情報**
+* [Introducing Googlebook, designed for Gemini Intelligence](https://blog.google/products-and-platforms/platforms/android/meet-googlebook/)
+* [The Android Show: I/O Edition 2026（Google Japan）](https://blog.google/intl/ja-jp/products/android-chrome-play/android-show-io-edition-2026/)
+* [Chromebookの自動更新ポリシー](https://support.google.com/chrome/a/answer/6220366?hl=ja)
 
 **Linux 関連**
 * [ChromebookにLinuxをクリーンインストールする方法](https://zenn.dev/roistaff/articles/30ce3883b3b9d9)
