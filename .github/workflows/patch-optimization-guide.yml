@@ -23,6 +23,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Adjust one-off matcher
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/patch_optimization_guide.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''    r"\\*\\*Web版YouTubeについての留意点\\*\\*\\n\\nYouTube Anti-Adblock回避ルールは、.*?\\(\\[Issues #27415\\].*?\\)\\.\\n",
+    "**Web版YouTubeについての留意点**\\n\\nYouTubeの広告配信やアンチ広告ブロック対策は頻繁に変更されます。問題報告時は、各プロジェクトの公式案内に従い、フィルタを最新化したうえで、追加フィルタ・UserScript・他のブロッカーを一時的に外して再現性を確認します。特定の開発者の所属、レビュー、承認関係は、本人またはプロジェクトが公開した資料で確認できる範囲を超えて推測しません。\\n"
+'''
+          new = '''    r"\\*\\*Web版YouTubeについての留意点\\*\\*\\n\\n.*?\\n\\n\\*\\*𝕏/Twitter ルール作り資料｜uBlock Origin\\*\\*",
+    "**Web版YouTubeについての留意点**\\n\\nYouTubeの広告配信やアンチ広告ブロック対策は頻繁に変更されます。問題報告時は、各プロジェクトの公式案内に従い、フィルタを最新化したうえで、追加フィルタ・UserScript・他のブロッカーを一時的に外して再現性を確認します。特定の開発者の所属、レビュー、承認関係は、本人またはプロジェクトが公開した資料で確認できる範囲を超えて推測しません。\\n\\n**𝕏/Twitter ルール作り資料｜uBlock Origin**"
+'''
+          if text.count(old) != 1:
+              raise SystemExit('expected one YouTube matcher block')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Apply fail-closed corrections
         id: apply
         continue-on-error: true
