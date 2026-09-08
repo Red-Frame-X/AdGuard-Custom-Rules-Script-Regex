@@ -6,28 +6,30 @@ Googleが2026年5月に発表した「Googlebook」と、発表前に報道さ�
 | :--- | :--- |
 | **Homepage** | [Red-Frame-X/Prototype](https://github.com/Red-Frame-X/Prototype) |
 | **License** | CC0-1.0 |
-| **Version** | 20260825 |
+| **Version** | 20260908 |
 
 ライセンス、第三者コンテンツの扱いおよび無保証については[`LICENSES.md`](../LICENSES.md)を参照してください。
 
 > [!IMPORTANT]
-> Googlebookは発売前です。公式発表、報道、推測を区別し、仕様を確定情報として先取りしないでください。
+> Googlebookは発売前です。公式発表、報道、推測を区別し、未発表の仕様を確定情報として先取りしないでください。
 
 ## 要約
 
-Googlebookは、Androidのアプリ基盤とChromeOSのブラウザ体験を組み合わせ、Gemini Intelligenceを中核に据えた新しいノートPCカテゴリです。Googleは2026年秋の投入を予告していますが、2026年8月22日時点の公式紹介では、個別メーカー、価格、対応地域、CPU、最低RAM、Linux実行方式、既存Chromebookの移行対象を公表していません。
+Googlebookは、GoogleがAndroidとChromeOSの長所を組み合わせ、Gemini Intelligenceを中核に据えて設計した新しいノートPCカテゴリです。Googleは2026年5月12日の公式発表で、Acer、ASUS、Dell、HP、Lenovoを初期パートナーとして挙げ、2026年秋の提供開始を予告しています。一方、2026年9月8日時点で、個別モデル、価格、対応地域、CPU、最低RAM、Linux実行方式、既存Chromebookからの移行対象などの詳細は公式には公表されていません。
 
-「Aluminium」は求人情報などから報道されたAndroidベースPCプロジェクトのコードネームです。Googleの製品発表は「Googlebook」を使用しており、「Aluminium OS」または「ALOS」を正式な製品名としていません。
+Google公式は、Googlebookについて「Android tech stackの一部を基盤にする」「AndroidとChromeOSの長所を組み合わせる」と説明しています。「Aluminium」は求人情報などから報道されたAndroidベースPCプロジェクトのコードネームですが、Googleの製品発表は「Googlebook」という名称を使用しており、「Aluminium OS」または「ALOS」を正式な製品名としていません。
 
 ## 確認できる情報
 
 Google公式発表で確認できる主な内容は次のとおりです。
 
 - AndroidとChromeOSの長所を取り入れた新しいノートPCカテゴリ。
+- Android tech stackの一部を基盤としている。
 - Geminiの文脈提案をカーソルから呼び出す「Magic Pointer」。
 - 指示からダッシュボードを作る「Create your Widget」。
 - Androidスマートフォン上のアプリやファイルとの連携。
-- 主要パートナーによるプレミアムハードウェアと、2026年秋の投入予定。
+- Acer、ASUS、Dell、HP、Lenovoと共同で最初のGooglebookを開発。
+- プレミアムなハードウェアと、2026年秋の提供開始予定。
 
 ## 未確認・未発表の事項
 
@@ -35,8 +37,9 @@ Google公式発表で確認できる主な内容は次のとおりです。
 - Androidアプリの実行方式と互換性の範囲。
 - Linux環境の有無、AVFや仮想化方式。
 - 最低RAM、ストレージ、CPUなどの要件。
+- 個別モデルの価格と提供地域。
 - 既存Chromebookへの移行またはバックポートの対象。
-- ChromeOS製品の終了時期。
+- ChromeOS製品全体の終了時期。
 - Gemini機能ごとの端末内処理、クラウド処理、データ保持条件。
 
 ## 期待できる点とリスク
@@ -46,14 +49,14 @@ Google公式発表で確認できる主な内容は次のとおりです。
 | アプリ | Google Playのアプリ資産を活用できる | 大画面、キーボード、マウスへの最適化はアプリごとに異なる |
 | AI | OS全体で文脈に応じた支援を利用できる | 処理場所、送信データ、保持期間を機能ごとに確認する必要がある |
 | 端末連携 | スマートフォンのアプリやファイルへアクセスできる | 対応端末、権限、企業管理の要件は未発表 |
-| 移行 | AndroidとChromeOSの資産を統合できる可能性 | 既存端末・周辺機器・業務フローの互換性は未確認 |
+| 移行 | AndroidとChromeOSの資産を組み合わせられる可能性 | 既存端末・周辺機器・業務フローの互換性と移行方法は未確認 |
 
 ## 広告ブロックとプライバシー
 
 発売前の段階で特定アプリの組み合わせを「最適構成」と断定することはできません。次の順序で判断します。
 
 1. ブラウザがChrome拡張機能をどの範囲でサポートするか確認する。
-2. AndroidのVPN API、プライベートDNS、HTTPS証明書、アプリ単位VPNの実装を確認する。
+2. Android系のVPN API、プライベートDNS、HTTPS証明書、アプリ単位VPNの実装を確認する。
 3. AdGuard for Android、personalDNSfilterなどがGooglebookを正式対応環境に含めるか確認する。
 4. ブラウザ内フィルタとDNS・VPNフィルタを重ねる場合は、誤ブロック、二重処理、電池消費、ログの分散を実機で比較する。
 
@@ -61,7 +64,7 @@ AdGuardのフィルタ構文については、製品予測から切り離し、[
 
 ## 今後確認する項目
 
-- Googleおよび各メーカーの仕様ページ、発売地域、価格。
+- Googleおよび各メーカーの個別仕様ページ、発売地域、価格。
 - 自動更新期限と企業・教育機関向け管理。
 - Androidアプリ、Linuxツール、周辺機器の互換性。
 - VPN、DNS、証明書、拡張機能に関する制約。
