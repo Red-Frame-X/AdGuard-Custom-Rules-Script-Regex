@@ -2,7 +2,7 @@
 // @name         X Auto Select Following Latest Sort
 // @namespace    https://github.com/Red-Frame-X/Prototype
 // @license      CC0-1.0
-// @version      1.2.0
+// @version      1.2.1
 // @description  Xのホームで「フォロー中」を既定選択し、並べ替えメニューでは自動的に「最新」を選択します。
 // @author       Red-Frame-X
 // @match        https://x.com/*
@@ -17,6 +17,7 @@
 (function () {
     'use strict';
 
+    const LATEST_SORT_LABELS = new Set(['最新', 'Latest']);
     const processedMenus = new WeakSet();
     const pendingMenus = new Set();
     let frameId = 0;
@@ -63,10 +64,12 @@
         let isLatestSelected = false;
 
         for (const item of menu.querySelectorAll('[role="menuitem"]')) {
-            if (!(item.textContent || '').includes('最新')) continue;
+            const label = (item.textContent || '').trim();
+            if (!LATEST_SORT_LABELS.has(label)) continue;
 
             latestItem = item;
-            isLatestSelected = item.querySelector('svg') !== null;
+            isLatestSelected = item.getAttribute('aria-checked') === 'true'
+                || item.querySelector('svg') !== null;
             break;
         }
 
